@@ -1,0 +1,10 @@
+{
+    "Ho_ten": "Nguyễn thị bé Nhỏ",
+    "Ma_so": "NV_1",
+    "Ten_Dang_nhap": "NV_1",
+    "Mat_khau": "NV_1",
+    "Nhom_Nguoi_dung": {
+        "Ten": "Nhân viên Nhập hàng",
+        "Ma_so": "NHAN_VIEN_NHAP_HANG"
+    }
+}
