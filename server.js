@@ -70,10 +70,10 @@ server.post("/FindUser", (req, res) => {
         db.getOne("user", filter).then(result => {
             try {
                 if (result.tendangnhap == user.tendangnhap);
-                res.json([{ ket_qua: true, tendangnhap: result.tendangnhap, pass: result.pass }])
+                res.json({ ket_qua: true, tendangnhap: result.tendangnhap, pass: result.pass })
             } catch {
                 console.log("không tìm thấy")
-                res.json({ ket_qua: false })
+                res.json({ ket_qua: false, noi_dung: "không tìm thấy tài khoản" })
             }
 
             // if (result.tendangnhap != null) {
