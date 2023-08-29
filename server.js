@@ -63,23 +63,33 @@ server.post("/FindUser", (req, res) => {
     req.on("end", () => {
         let user = JSON.parse(noi_dung_nhan);
         let filter = {
-            "hoten": user.hoten,
+            "tendangnhap": user.tendangnhap,
             "pass": user.pass
         }
 
         db.getOne("user", filter).then(result => {
-            console.log(result);
-            if (result.hoten == '' || result.pass == '') {
-                ket_qua.noi_dung = false;
-            } else {
-                res.json(ket_qua);
+            try {
+                if (result.tendangnhap == user.tendangnhap);
+                res.json([{ ket_qua: true, tendangnhap: result.tendangnhap, pass: result.pass }])
+            } catch {
+                console.log("không tìm thấy")
+                res.json({ ket_qua: false })
             }
+
+            // if (result.tendangnhap != null) {
+            //     ket_qua.noi_dung = true;
+            //     res.json(ket_qua)
+            // }
+            //else {
+            //     res.json(ket_qua)
+            //     //ket_qua.noi_dung_nhan;
+            // }
 
 
         }).catch(err => {
             console.log(err);
             ket_qua.noi_dung = false;
-            res.json(ket_qua);
+            //res.json(ket_qua);
         })
     })
 })
