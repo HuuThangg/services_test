@@ -113,11 +113,11 @@ server.post("/updateUser", (req, res) => {
     req.on("end", () => {
         let user = JSON.parse(noi_dung_nhan);
         let filter = {
-            "Ma_so": user.Ma_so
+            "sdt": user.sdt
         }
         let userUpdate = {
             "$set": {
-                "Ho_ten": user.Ho_ten
+                "hoten": user.hoten
             }
         }
         db.updateOne("user", filter, userUpdate).then(result => {
