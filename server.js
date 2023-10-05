@@ -117,7 +117,17 @@ server.post("/updateUser", (req, res) => {
         }
         let userUpdate = {
             "$set": {
-                "hoten": user.hoten
+                "hoten": user.hoten,
+                "ngaysinh": user.ngaysinh,
+                "gioitinh": user.checked,
+                "email": user.email,
+                "tinhtp": user.tinhtp,
+                "quanhuyen": user.quanhuyen,
+                "phuongxa": user.phuongxa,
+                "diachi": user.diachi,
+                "sobhyt": user.sobhyt,
+                "dantoc": user.dantoc,
+                "nghenghiep": user.nghenghiep,
             }
         }
         db.updateOne("user", filter, userUpdate).then(result => {
